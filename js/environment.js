@@ -99,6 +99,29 @@ function init() {
 
 	group.add( mesh2 );
 
+	//shape3
+	var shape3 = new THREE.Shape();
+
+	shape3.moveTo( 0, 0 );
+	shape3.bezierCurveTo( 5, 5, 10, 5, 5, 5 );
+	shape3.bezierCurveTo( 6, 5, 6, 10, 0, 10 );
+	shape3.bezierCurveTo( -10, 10, -10, 12, -10, 8 );
+	shape3.bezierCurveTo( -10, 10, -40, -5, 5, -5 );
+	shape3.bezierCurveTo( 10, -10, 10, -25, 15, 5 );
+
+	var extrudeSetting3 = { amount: 5, bevelEnabled: true, bevelSegments: 4, steps: 3, bevelSize: 1, bevelThickness: 1 };
+
+	var geometry3 = new THREE.ExtrudeGeometry( shape3, extrudeSetting3 );
+
+	var mesh3 = new THREE.Mesh( geometry3, new THREE.MeshPhongMaterial( { color: 0xffffff, wireframe: true } ) );
+
+	mesh3.position.x = -10;
+	mesh3.position.z = -10;
+	mesh3.rotation.x = 0.5;
+	mesh3.rotation.z = 1.8;
+
+	group.add( mesh3 );
+
 	scene.add( group );
 
 	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
